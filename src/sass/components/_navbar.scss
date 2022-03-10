@@ -1,0 +1,160 @@
+@import '../abastracts/mixins';
+@import '../abastracts/variables';
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   
+
+    padding:3rem 3rem;
+
+    .menu__logo{
+        margin-top: -1.2rem;
+        background-color: rgba($color-primary-dark, 0.9);
+        padding: 1px;
+        border-radius: 1rem;
+        img{
+            height: 8rem;
+            
+        }
+
+
+    }
+
+    @include respond(tab-port) {
+        background-image: linear-gradient(
+            to left bottom, rgba($color-primary-dark, 0.9) , 
+        rgba($color-primary-dark, 0.9));
+       
+    }
+
+
+   
+
+
+
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: .5rem;
+        width: 75vw;
+        background-image: linear-gradient(
+            to left bottom, rgba($color-primary-dark, 0.9) , 
+            rgba($color-primary-dark, 0.9));
+        padding: 2rem 2rem;
+        height: 6rem;
+        border-radius: 1rem;
+        
+        @include respond(tab-land) {
+            justify-content:space-evenly;
+
+        }
+
+        @include respond(tab-port) {
+            background: none;
+            justify-content: right;
+        }
+
+
+       
+    
+        &__list {
+            display: flex ;
+            align-items: center;
+            list-style: none;
+            height: 100%;
+            padding: 0 2rem;
+    
+            &__item{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 3rem;
+                font-size: 1.8rem;
+    
+                // Esorina ny liste avy @ tab-port
+                @include respond(tab-port) {
+                    display: none;
+                }
+            }
+            
+        }
+    
+        &__link {
+            color: $color-secondary-shine;
+            text-decoration: none;
+    
+            &:hover {
+                
+                border: 1px solid $color-secondary-shine; 
+                border-radius: 1rem;
+                padding:1.3rem 1.3rem 1.6rem 1.6rem;
+                transition: all .5s ease-in-out;
+                box-shadow: 0 1rem 2rem rgba($color-secondary-shine, .2);
+                color: $color-secondary-shine;
+
+            }
+        
+        }
+
+        &__list__icon{
+            display: flex;
+            flex-direction: row;
+            margin-right: 5rem;
+            margin-top: -.5rem;
+            cursor: pointer;
+            @include respond(tab-port) {
+                margin:0;
+            }
+
+
+
+
+            .color{
+                color: rgba($color-secondary-ligthness, .9);
+            }   
+
+            &--search{
+                margin-right: 2rem;
+
+                @include respond(tab-port) {
+                    
+                }
+            
+                &:hover {
+                    outline: none;
+                    animation: pulsate .8s ;
+                }
+            }
+            &--contact{
+                &:hover {
+                    outline: none;
+                    animation: pulsate .8s ;
+                }
+                @include respond(tab-port) {
+                    margin-right: 2rem;
+                }
+            }
+            &--mobile{
+                
+                display: none;
+
+                @include respond(tab-port) {
+
+                    display: block;
+
+                    &:hover {
+                        outline: none;
+                        animation: pulsate .8s ;
+                    }
+                }
+            }
+           
+
+        }
+        
+    }
+}
+
+
